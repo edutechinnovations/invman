@@ -11,11 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 
 // Add route for login, logout, registration etc.
 Route::auth();
-Route::get('/home', 'HomeController@index');
+Route::get('/dashboard', 'DashboardController@index');
