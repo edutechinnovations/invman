@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+// Add route for login, logout, registration etc.
+Route::auth();
+Route::get('/home', 'HomeController@index');
