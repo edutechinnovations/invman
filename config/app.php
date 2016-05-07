@@ -169,7 +169,9 @@ return [
          * Third party service providers
          */
 		Barryvdh\Debugbar\ServiceProvider::class,
+		Webpatser\Countries\CountriesServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
+		
 
     ],
 
@@ -221,6 +223,7 @@ return [
          * Third party alias
          */
 		'Debugbar' => Barryvdh\Debugbar\Facade::class,
+		'Countries' => Webpatser\Countries\CountriesFacade::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
     ],
 
