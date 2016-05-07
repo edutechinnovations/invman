@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Zizaco\Entrust\EntrustRole;
 
-class Role extends EntrustRole;
+class Role extends EntrustRole
 {
     //
 }
