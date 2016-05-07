@@ -225,6 +225,7 @@ return [
 		'Debugbar' => Barryvdh\Debugbar\Facade::class,
 		'Countries' => Webpatser\Countries\CountriesFacade::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+		'Utils'		=> App\Libraries\Utils::class,
     ],
 
 ];

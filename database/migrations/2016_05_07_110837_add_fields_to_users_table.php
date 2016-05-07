@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAccountIdToUsersTable extends Migration
+class AddFieldsToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,6 +14,8 @@ class AddAccountIdToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
+			$table->unsignedInteger('account_id')->index();
+			
 			$table->string('confirmation_code')->nullable();
             $table->boolean('registered')->default(false);
             $table->boolean('confirmed')->default(false);
@@ -22,7 +24,6 @@ class AddAccountIdToUsersTable extends Migration
             $table->boolean('notify_viewed')->default(false);
             $table->boolean('notify_paid')->default(true);
 			
-			$table->unsignedInteger('account_id')->index();
 			$table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
 
             $table->unsignedInteger('public_id')->nullable();
@@ -42,7 +43,6 @@ class AddAccountIdToUsersTable extends Migration
 			$table->dropForeign('users_account_id_foreign');
 			
 			$table->dropUnique('users_account_id_public_id_unique');
-			$table->dropIndex('account_id');
 			
 			$table->dropColumn('confirmation_code');
 			$table->dropColumn('registered');

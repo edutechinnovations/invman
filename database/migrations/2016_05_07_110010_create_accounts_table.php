@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAccountTable extends Migration
+class CreateAccountsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -22,16 +22,24 @@ class CreateAccountTable extends Migration
 			
 			$table->softDeletes();
 			
+			$table->string('name')->nullable();
+            $table->string('ip');
+            $table->string('account_key')->unique();
+            $table->timestamp('last_login')->nullable();
+			
 			$table->string('address1')->nullable();
             $table->string('address2')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('postal_code')->nullable();
+			
             $table->unsignedInteger('country_id')->nullable();     
             $table->text('invoice_terms')->nullable();
             $table->text('email_footer')->nullable();
+			$table->unsignedInteger('industry_id')->nullable();
+            $table->unsignedInteger('size_id')->nullable();
 			
-			$tabe->boolean('invoice_taxes')->default(true);
+			$table->boolean('invoice_taxes')->default(true);
             $table->boolean('invoice_item_taxes')->default(false);
         });
     }
